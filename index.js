@@ -21,9 +21,8 @@ app.get("/",(req,res)=>{
 })
 
 const PORT=process.env.PORT || 5000
-const CONNECTION_URL="mongodb+srv://admin:123tarikhan@cluster0.ybro9ey.mongodb.net/?retryWrites=true&w=majority"
 mongoose.set('strictQuery', false)
-mongoose.connect(CONNECTION_URL).then((res)=>console.log("db connected")).catch((err)=>console.log("err in db connnect"))
+mongoose.connect(process.env.MONGO).then((res)=>console.log("db connected")).catch((err)=>console.log("err in db connnect"))
 
 app.listen(PORT,()=>{console.log(`server running on port ${PORT}`)})
 
